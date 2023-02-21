@@ -1,0 +1,15 @@
+Alogorithm 1:- for Calculate student percentage and grade
+
+step 1:- initilizing the scanner to "sc" variable
+step 2:- initilizing the percentage variable as "per" and storing the percentage given by the user.
+step 3:- checking the conditions given and printing the grades of the user according to the percentage by using if-else-if ladder
+step 4:- 
+
+Alogorithm 2:- for get input week number and print week day
+
+step 1:- initilizing the scanner to "sc" variable
+step 2:- initilizing the "a" variable as int data type
+step 3:- store the user input in the "a"
+step 4:- pass the "a" value to the switch 
+step 5:- check the sutable case and and print the sutable day to the given number
+step 6:- incase user gives the invalid number ask the user to enter valid number
