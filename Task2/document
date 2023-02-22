@@ -1,0 +1,233 @@
+Java program to find out all permutations of String 
+
+Algorithm :-1 
+
+------------- 
+
+step 1: READING THE STRING FROM THE USER AND STOING THAT IN s 
+
+step 2: CALLING THE FUNCTION secondRepeatedchar() BY PASSING THE STRING AS PARAMETER s 
+
+step 3: INITILIZING THE COUNT TO COUNT IF THERE IS ANY REPEATED CHARACTER 
+
+step 4: INITILIZING THE FLAG TO COUNT THE NO OF REPEATING CHARACTER 
+
+step 5: COVERT THE GIVEN STRING INTO THE CHARACTER ARRAY 
+
+step 6: PARSING THROUGH THE CHARACTER ARRAY 
+
+step 7: TO COMPARE THE CARACTERS IN THE GIVEN STRING PARASING FROM THE NEXT NEXT CARACTER 
+
+step 8: COMPARING THE CARACTERS IN THE STRING 
+
+step 9: INCREASING THE FLAG COUNT IF WE FIND ANY REAPEATED CARACTER 
+
+step 10: PRINTING THE CARACTER IF THE FLAG COUNT IS 2 .FLAG COUNT IS TWO MEANS THAT IS THE SECOND REPEATING CARACTER IN THE STRING AND BREAKING THE LOOP THERE. 
+
+step 11: SENDING THE USER A MESSAGE SAYING THAT WE DONT HAVE THE SECOND CARACTER IF WE DONT HAVE ANY SECOND REPEATING CARACTER IN THE GIVEN STRING. 
+
+Program :-1 
+
+----------- 
+
+package com.java.day2; 
+
+  
+
+import java.util.Scanner; 
+
+  
+
+public class Task1 { 
+
+//FUNCTION TO FIND THE SECOND REPEATING CHARACTER IN THE GIVEN STRING 
+
+private static void secondRepeatedchar(String s) { 
+
+//INITILIZING THE COUNT TO COUNT IF THERE IS aANY REPEATED CHARACTER 
+
+//INITILIZING THE FLAG TO COUNT THE NO OF REPEATING CHARACTER 
+
+int count=0,flag=0; 
+
+//COVERTING THE GIVEN STRING INTO THE CHARACTER ARRAY 
+
+char[] s1 = s.toCharArray(); 
+
+//PARSING THROUGH THE CHARACTER ARRAY 
+
+for (int i = 0; i < s1.length; i++) { 
+
+//TO COMPARE THE CARACTERS IN THE GIVEN STRING PARASING FROM THE NEXT NEXT CARACTER 
+
+            for (int j = i+1; j < s1.length; j++) { 
+
+            	//COMPARING THE CARACTERS IN THE STRING 
+
+                if (s1[i] == s1[j]) { 
+
+                    count++; 
+
+                } 
+
+            } 
+
+            //INCREASING THE FLAG COUNT IF WE FIND ANY REAPEATED CARACTER 
+
+            if(count>=1) { 
+
+            	count=0; 
+
+            	flag++; 
+
+            } 
+
+            //PRINTING THE CARACTER IF THE FLAG COUNT IS 2 . 
+
+            //FLAG COUNT IS TWO MEANS THAT IS THE SECOND REPEATING CARACTER IN THE STRING AND BREAKING THE LOOP THERE 
+
+        	if(flag==2) { 
+
+        		System.out.println(s1[i]); 
+
+        		break; 
+
+        	} 
+
+            } 
+
+//SENDING THE USER A MESSAGE SAYING THAT WE DONT HAVE THE SECOND CARACTER  
+
+if(flag<2) { 
+
+System.out.println("there is no second repeated character in the given string"); 
+
+} 
+
+} 
+
+public static void main(String[] args) { 
+
+try (Scanner sc = new Scanner(System.in)) { 
+
+System.out.println("Enter the string"); 
+
+//READING THE STRING FROM THE USER 
+
+String s=sc.nextLine(); 
+
+//CALLING THE FUNCTION BY PASSING THE STRING AS PARAMETER 
+
+secondRepeatedchar(s); 
+
+} 
+
+} 
+
+  
+
+} 
+
+ 
+
+Algorithm: -2 
+
+step 1: DEFINE A STRING. 
+
+step 2: FIX A CHARACTER AND SWAP THE REST OF THE CHARACTERS. 
+
+step 3: CALL THE generatePermutation () FOR REST OF THE CHARACTERS. 
+
+step 4: BACKTRACK AND SWAP THE CHARACTERS AGAIN. 
+
+ 
+
+Program: -2 
+
+package com.java.day2; 
+
+  
+
+import java.util.Scanner; 
+
+  
+
+public class Task2 { 
+
+//Function for swapping of the characters 
+
+public static String swapString(String a, int i, int j) {     
+
+        char[] b =a.toCharArray();     
+
+        char ch;     
+
+        ch = b[i];     
+
+        b[i] = b[j];     
+
+        b[j] = ch;     
+
+        return String.valueOf(b);     
+
+    }  	         
+
+    //function to print the possible strings with given string    
+
+    public static void generatePermutation(String str, int start, int end)     
+
+    {     
+
+        //Prints the permutations     
+
+        if (start == end-1)     
+
+            System.out.println(str);     
+
+        else     
+
+        {     
+
+            for (int i = start; i < end; i++)     
+
+            {     
+
+                //Swapping the string    
+
+                str = swapString(str,start,i);     
+
+                // calling generatePermutation function for rest of the characters      
+
+                generatePermutation(str,start+1,end);     
+
+                //Backtracking and swapping the characters again.     
+
+                str = swapString(str,start,i);     
+
+            }     
+
+        }     
+
+    } 
+
+    public static void main(String[] args)     
+
+    {     
+
+    	try (Scanner sc = new Scanner(System.in)){ 
+
+    System.out.println("Enter the String : "); 
+
+        String str = sc.nextLine();   
+
+        int len = str.length();     
+
+        System.out.println("Possible Strings for the given String: ");     
+
+        generatePermutation(str, 0, len); 
+
+    	} 
+
+    } 
+
+} 
