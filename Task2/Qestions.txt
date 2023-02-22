@@ -1,0 +1,2 @@
+Java program to find out all permutations of String
+Find out second non repeating character in a String
